@@ -1,0 +1,9 @@
+<div class="currencyListContainer">
+    <label for="currency">From</label>
+    <select id="currency" name="currency" (change)="onChange($event)" (focus)="onFocus($event)">
+        <option 
+        *ngFor="let currency of currencyList | keyvalue; let i = index" 
+        [value]="currency.key"
+        [selected]="(isFrom&&this.from===currency.key)||(!this.isFrom&&this.to===currency.key)">{{currency.key}} - {{currency.value}}</option>
+      </select>
+</div>
