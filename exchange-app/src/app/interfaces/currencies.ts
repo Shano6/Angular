@@ -1,3 +1,3 @@
-export default interface currencies {
-    [key: string]: string
-  }
+export default interface Currencies {
+  [key: string]: string;
+}

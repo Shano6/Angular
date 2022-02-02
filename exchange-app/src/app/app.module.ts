@@ -9,20 +9,17 @@ import { CurrencyPickerComponent } from './components/currency-picker/currency-p
 import { CurrencyService } from './services/currency.service';
 import { DatePipe, KeyValuePipe } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { isOutDated } from './helpers/isOutDated';
 
 @NgModule({
   declarations: [
     AppComponent,
     ConverterComponent,
     CurrencyListComponent,
-    CurrencyPickerComponent
+    CurrencyPickerComponent,
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    ReactiveFormsModule
-  ],
-  providers: [CurrencyService, DatePipe, KeyValuePipe],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, HttpClientModule, ReactiveFormsModule],
+  providers: [CurrencyService, DatePipe, KeyValuePipe, isOutDated],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

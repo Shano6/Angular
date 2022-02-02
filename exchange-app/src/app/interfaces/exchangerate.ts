@@ -1,3 +1,3 @@
-export default interface exchangerate{
-    [key: string]: number
-  }
+export default interface Exchangerate {
+  [key: string]: number;
+}

@@ -1,31 +1,30 @@
-.currencyPickerContainer{
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
+.currencyPickerContainer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
-.currencyPickerContainer button{
-    margin-top: 8px;
-    min-width: 60px;
-    height: 60px;
-    margin: 10px;
-    border: 11px solid #e7f2fb;
-    border-radius: 50%;
-    background-color: #3488e7;
-    background-image: url('../../../assets/shuffle.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 18px;
-    transition: border 0.3s;
+.currencyPickerContainer button {
+  margin-top: 8px;
+  min-width: 60px;
+  height: 60px;
+  margin: 10px;
+  border: 11px solid #e7f2fb;
+  border-radius: 50%;
+  background-color: #3488e7;
+  background-image: url("../../../assets/shuffle.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 18px;
+  transition: border 0.3s;
 }
 
-.currencyPickerContainer button:hover{
-    cursor: pointer;
+.currencyPickerContainer button:hover {
+  cursor: pointer;
 }
 
-.currencyPickerContainer button:active{
-    cursor: pointer;
-    border: none;
-    transition: border 0.3s;
+.currencyPickerContainer button:active {
+  cursor: pointer;
+  border: none;
+  transition: border 0.3s;
 }
-
