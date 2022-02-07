@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import Currencies from 'src/app/interfaces/Currencies';
-import Exchangerate from 'src/app/interfaces/Exchangerate';
+import { Currencies } from 'src/app/interfaces/Index';
+import { ExchangeRate } from 'src/app/interfaces/Index';
 import { CurrencyService } from 'src/app/services/currency.service';
 import { StateService } from 'src/app/services/state.service';
 
@@ -14,7 +14,7 @@ export class ConverterComponent implements OnInit {
   curDate: Date = new Date();
   currencyList?: Currencies;
   currency!: string;
-  exchangerate!: Exchangerate;
+  exchangerate!: ExchangeRate;
   valueFrom = new FormControl('');
   valueTo = new FormControl('');
 
@@ -36,8 +36,8 @@ export class ConverterComponent implements OnInit {
       }
     });
 
-    this.state.getExchangeRateState().subscribe((state) => {
-      this.exchangerate = state;
+    this.state.getExchangeRateState().subscribe((exchangeRate) => {
+      this.exchangerate = exchangeRate;
     });
   }
 

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import ExchangeRate from '../interfaces/Exchangerates';
+import { ExchangeRates } from '../interfaces/Index';
 import { DatePipe } from '@angular/common';
 import { isOutDated } from '../helpers/isOutDated';
 
@@ -46,7 +46,7 @@ export class CurrencyService {
 
   private getExchangeRateFromApi(code: string, localExchangeRateData: string) {
     const url = `https://freecurrencyapi.net/api/v2/latest?apikey=fa887050-7ef3-11ec-a7cb-839b31e098ad&base_currency=${code}`;
-    this.http.get<ExchangeRate>(url).subscribe({
+    this.http.get<ExchangeRates>(url).subscribe({
       next: (next) => {
         localStorage.setItem(
           'exchangerates',

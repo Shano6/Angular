@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import Exchangerate from '../interfaces/Exchangerate';
+import { ExchangeRate } from '../interfaces/Index';
 import { CurrencyState, ValueState } from '../interfaces/State';
 
 @Injectable({
@@ -9,7 +9,7 @@ import { CurrencyState, ValueState } from '../interfaces/State';
 export class StateService {
   private currencyState = new BehaviorSubject<CurrencyState>({});
   private valueState = new BehaviorSubject<ValueState>({});
-  private exchangeRateState = new BehaviorSubject<Exchangerate>({});
+  private exchangeRateState = new BehaviorSubject<ExchangeRate>({});
 
   getCurrencyState(): Observable<CurrencyState> {
     return this.currencyState.asObservable();
@@ -51,11 +51,11 @@ export class StateService {
     });
   }
 
-  getExchangeRateState(): Observable<Exchangerate> {
+  getExchangeRateState(): Observable<ExchangeRate> {
     return this.exchangeRateState.asObservable();
   }
 
-  setExchangeRateSTate(exchangerate: Exchangerate): void {
+  setExchangeRateSTate(exchangerate: ExchangeRate): void {
     this.exchangeRateState.next(exchangerate);
   }
 }

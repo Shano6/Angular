@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import currencies from 'src/app/interfaces/Currencies';
+import { Currencies } from 'src/app/interfaces/Index'
 import { CurrencyService } from 'src/app/services/currency.service';
 import { StateService } from 'src/app/services/state.service';
 
@@ -9,11 +9,10 @@ import { StateService } from 'src/app/services/state.service';
   styleUrls: ['./currency-picker.component.scss'],
 })
 export class CurrencyPickerComponent implements OnInit {
-  @Input() currencyList!: currencies;
+  @Input() currencyList!: Currencies;
 
   constructor(
     private state: StateService,
-    private currencyservice: CurrencyService
   ) {}
 
   ngOnInit(): void {

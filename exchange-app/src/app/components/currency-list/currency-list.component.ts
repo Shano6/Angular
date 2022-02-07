@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { StateService } from 'src/app/services/state.service';
-import Currencies from 'src/app/interfaces/Currencies';
+import { Currencies } from 'src/app/interfaces/Index';
 import { CurrencyService } from 'src/app/services/currency.service';
 
 @Component({
@@ -47,5 +47,11 @@ export class CurrencyListComponent implements OnInit {
     } else {
       this.state.setCurrencyState(this.from, newCurrency);
     }
+  }
+
+  isSelected(currency: object): boolean{
+    console.log(currency)
+
+    return false
   }
 }

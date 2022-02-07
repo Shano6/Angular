@@ -1,4 +1,4 @@
-export default interface ExchangeRates {
+export interface ExchangeRates {
   query: object;
   data: object;
 }
