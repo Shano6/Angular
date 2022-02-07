@@ -11,9 +11,11 @@ export class StateService {
   private valueState = new BehaviorSubject<ValueState>({});
   private exchangeRateState = new BehaviorSubject<ExchangeRate>({});
 
-  getCurrencyState(): Observable<CurrencyState> {
-    return this.currencyState.asObservable();
-  }
+  public currencyState$: Observable<CurrencyState> =
+    this.currencyState.asObservable();
+  public valueState$: Observable<ValueState> = this.valueState.asObservable();
+  public exchangeRateState$: Observable<ExchangeRate> =
+    this.exchangeRateState.asObservable();
 
   setCurrencyState(from?: string, to?: string): void {
     if (from === to) {
@@ -38,10 +40,6 @@ export class StateService {
       fromValue: this.valueState.value.toValue,
       toValue: this.valueState.value.fromValue,
     });
-  }
-
-  getValueState(): Observable<ValueState> {
-    return this.valueState.asObservable();
   }
 
   setValueState(fromValue: number, toValue: number): void {

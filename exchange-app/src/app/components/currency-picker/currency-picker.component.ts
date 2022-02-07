@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Currencies } from 'src/app/interfaces/Index'
+import { Currencies } from 'src/app/interfaces/Index';
 import { CurrencyService } from 'src/app/services/currency.service';
 import { StateService } from 'src/app/services/state.service';
 
@@ -11,9 +11,7 @@ import { StateService } from 'src/app/services/state.service';
 export class CurrencyPickerComponent implements OnInit {
   @Input() currencyList!: Currencies;
 
-  constructor(
-    private state: StateService,
-  ) {}
+  constructor(private state: StateService) {}
 
   ngOnInit(): void {
     const currencyKeys = Object.keys(this.currencyList);

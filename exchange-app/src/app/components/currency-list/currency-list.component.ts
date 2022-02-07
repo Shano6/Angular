@@ -1,20 +1,22 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { StateService } from 'src/app/services/state.service';
 import { Currencies } from 'src/app/interfaces/Index';
 import { CurrencyService } from 'src/app/services/currency.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-currency-list',
   templateUrl: './currency-list.component.html',
   styleUrls: ['./currency-list.component.scss'],
 })
-export class CurrencyListComponent implements OnInit {
+export class CurrencyListComponent implements OnInit, OnDestroy {
   @Input() currencyList!: Currencies;
   @Input() isFrom!: boolean;
 
   from?: string;
   to?: string;
   oldvalue?: string;
+  currencyStateSubscription!: Subscription;
 
   constructor(
     private state: StateService,
@@ -22,16 +24,22 @@ export class CurrencyListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.state.getCurrencyState().subscribe((state) => {
-      this.from = state.from;
-      this.to = state.to;
-      if (this.isFrom && this.from) {
-        const newCurrencyRate = this.currencyService.getExchangeRate(
-          this.from!
-        );
-        this.state.setExchangeRateSTate(newCurrencyRate);
+    this.currencyStateSubscription = this.state.currencyState$.subscribe(
+      (state) => {
+        this.from = state.from;
+        this.to = state.to;
+        if (this.isFrom && this.from) {
+          const newCurrencyRate = this.currencyService.getExchangeRate(
+            this.from!
+          );
+          this.state.setExchangeRateSTate(newCurrencyRate);
+        }
       }
-    });
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.currencyStateSubscription.unsubscribe();
   }
 
   onFocus(event: Event) {
@@ -49,9 +57,9 @@ export class CurrencyListComponent implements OnInit {
     }
   }
 
-  isSelected(currency: object): boolean{
-    console.log(currency)
+  isSelected(currency: object): boolean {
+    console.log(currency);
 
-    return false
+    return false;
   }
 }

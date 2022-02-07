@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Subscription } from 'rxjs';
 import { Currencies } from 'src/app/interfaces/Index';
 import { ExchangeRate } from 'src/app/interfaces/Index';
 import { CurrencyService } from 'src/app/services/currency.service';
@@ -10,13 +11,15 @@ import { StateService } from 'src/app/services/state.service';
   templateUrl: './converter.component.html',
   styleUrls: ['./converter.component.scss'],
 })
-export class ConverterComponent implements OnInit {
+export class ConverterComponent implements OnInit, OnDestroy {
   curDate: Date = new Date();
   currencyList?: Currencies;
   currency!: string;
   exchangerate!: ExchangeRate;
   valueFrom = new FormControl('');
   valueTo = new FormControl('');
+  stateSubscription!: Subscription;
+  exchangeRateSubscription!: Subscription;
 
   constructor(
     private currencyService: CurrencyService,
@@ -26,19 +29,26 @@ export class ConverterComponent implements OnInit {
   ngOnInit(): void {
     this.currencyList = this.currencyService.getCurrencies();
     this.valueTo.disable();
-    this.state
-      .getCurrencyState()
-      .subscribe((state) => (this.currency = state.to!));
-    this.state.getValueState().subscribe((state) => {
+    this.stateSubscription = this.state.currencyState$.subscribe(
+      (state) => (this.currency = state.to!)
+    );
+    this.state.valueState$.subscribe((state) => {
       if (state.fromValue != this.valueFrom.value && this.valueFrom.value) {
         this.valueFrom.setValue(state.fromValue);
         this.valueTo.setValue(state.toValue);
       }
     });
 
-    this.state.getExchangeRateState().subscribe((exchangeRate) => {
-      this.exchangerate = exchangeRate;
-    });
+    this.exchangeRateSubscription = this.state
+      .getExchangeRateState()
+      .subscribe((exchangeRate) => {
+        this.exchangerate = exchangeRate;
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.stateSubscription.unsubscribe();
+    this.exchangeRateSubscription.unsubscribe();
   }
 
   onChange() {
