@@ -49,10 +49,6 @@ export class StateService {
     });
   }
 
-  getExchangeRateState(): Observable<ExchangeRate> {
-    return this.exchangeRateState.asObservable();
-  }
-
   setExchangeRateSTate(exchangerate: ExchangeRate): void {
     this.exchangeRateState.next(exchangerate);
   }

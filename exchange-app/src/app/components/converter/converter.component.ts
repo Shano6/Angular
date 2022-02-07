@@ -40,7 +40,7 @@ export class ConverterComponent implements OnInit, OnDestroy {
     });
 
     this.exchangeRateSubscription = this.state
-      .getExchangeRateState()
+      .exchangeRateState$
       .subscribe((exchangeRate) => {
         this.exchangerate = exchangeRate;
       });
