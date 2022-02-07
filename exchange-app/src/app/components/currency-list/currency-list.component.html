@@ -9,13 +9,9 @@
     <option
       *ngFor="let currency of currencyList | keyvalue; let i = index"
       [value]="currency.key"
-      [selected]="
-        (isFrom && this.from === currency.key) ||
-        (!this.isFrom && this.to === currency.key)
-      "
+      [selected]="isSelected(currency)"
     >
       {{ currency.key }} - {{ currency.value }}
     </option>
-    <!-- აქ როგორ შემიძლია boolean კომპონენტში განიტანო ? *ngForს როცა ვიყენებ -->
   </select>
 </div>
