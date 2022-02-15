@@ -1,8 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { Currencies } from 'src/app/interfaces/Index';
-import { ExchangeRate } from 'src/app/interfaces/Index';
+import { Currencies, ExchangeRate } from 'src/app/interfaces';
 import { CurrencyService } from 'src/app/services/currency.service';
 import { StateService } from 'src/app/services/state.service';
 
@@ -39,11 +38,11 @@ export class ConverterComponent implements OnInit, OnDestroy {
       }
     });
 
-    this.exchangeRateSubscription = this.state
-      .exchangeRateState$
-      .subscribe((exchangeRate) => {
+    this.exchangeRateSubscription = this.state.exchangeRateState$.subscribe(
+      (exchangeRate) => {
         this.exchangerate = exchangeRate;
-      });
+      }
+    );
   }
 
   ngOnDestroy(): void {

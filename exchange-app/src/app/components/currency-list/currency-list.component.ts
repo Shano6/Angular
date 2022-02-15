@@ -58,6 +58,9 @@ export class CurrencyListComponent implements OnInit, OnDestroy {
   }
 
   isSelected(currency: any): boolean {
-    return (this.isFrom && this.from === currency.key) || (!this.isFrom && this.to === currency.key)
+    return (
+      (this.isFrom && this.from === currency.key) ||
+      (!this.isFrom && this.to === currency.key)
+    );
   }
 }
