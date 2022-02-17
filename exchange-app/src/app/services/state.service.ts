@@ -1,63 +1,55 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import exchangerate from '../interfaces/exchangerate';
-import {currencyState, valueState} from '../interfaces/state';
+import { ExchangeRate } from '../interfaces/Index';
+import { CurrencyState, ValueState } from '../interfaces/State';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class StateService {
-  private currencyState = new BehaviorSubject<currencyState>({}) 
-  private valueState = new BehaviorSubject<valueState>({})
-  private exchangeRateState = new BehaviorSubject<exchangerate>({})
-  
-  getCurrencyState(): Observable<currencyState>{
-    return this.currencyState.asObservable()
-  }
+  private currencyState = new BehaviorSubject<CurrencyState>({});
+  private valueState = new BehaviorSubject<ValueState>({});
+  private exchangeRateState = new BehaviorSubject<ExchangeRate>({});
 
-  setCurrencyState(from?:string, to?:string): void{
-    if(from===to){
-      this.swapCurrency()
-    } else{
+  public currencyState$: Observable<CurrencyState> =
+    this.currencyState.asObservable();
+  public valueState$: Observable<ValueState> = this.valueState.asObservable();
+  public exchangeRateState$: Observable<ExchangeRate> =
+    this.exchangeRateState.asObservable();
+
+  setCurrencyState(from?: string, to?: string): void {
+    if (from === to) {
+      this.swapCurrency();
+    } else {
       this.currencyState.next({
         from: from,
-        to: to
-      })
+        to: to,
+      });
 
-      this.setValueState(NaN,NaN)
+      this.setValueState(NaN, NaN);
     }
-  }  
+  }
 
-  swapCurrency(): void{
+  swapCurrency(): void {
     this.currencyState.next({
       from: this.currencyState.value.to,
-      to: this.currencyState.value.from
-    })
+      to: this.currencyState.value.from,
+    });
 
     this.valueState.next({
       fromValue: this.valueState.value.toValue,
-      toValue: this.valueState.value.fromValue
-    })
+      toValue: this.valueState.value.fromValue,
+    });
   }
 
-  getValueState(): Observable<valueState>{
-    return this.valueState.asObservable()
-  }
-
-  setValueState(fromValue: number, toValue:number): void{
+  setValueState(fromValue: number, toValue: number): void {
     this.valueState.next({
       fromValue: fromValue,
-      toValue: toValue
-    })
+      toValue: toValue,
+    });
   }
 
-  getExchangeRateState(): Observable<exchangerate>{
-    return this.exchangeRateState.asObservable()
-  }
-
-  setExchangeRateSTate(exchangerate: exchangerate): void{
-    this.exchangeRateState.next(
-      exchangerate
-    )
+  setExchangeRateSTate(exchangerate: ExchangeRate): void {
+    this.exchangeRateState.next(exchangerate);
   }
 }

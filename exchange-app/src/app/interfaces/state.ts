@@ -1,10 +1,9 @@
-export interface currencyState{
-    from?: string,
-    to?: string,
+export interface CurrencyState {
+  from?: string;
+  to?: string;
 }
 
-export interface valueState{
-    fromValue?: number,
-    toValue?:number
+export interface ValueState {
+  fromValue?: number;
+  toValue?: number;
 }
-

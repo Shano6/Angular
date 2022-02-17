@@ -1,7 +1,11 @@
-
 <div class="currencyPickerContainer">
-    <app-currency-list [currencyList]="currencyList" [isFrom]="true"></app-currency-list>
-    <button (click)="swapCurrency()"></button>
-    <app-currency-list [currencyList]="currencyList" [isFrom]="false"></app-currency-list>
+  <app-currency-list
+    [currencyList]="currencyList"
+    [isFrom]="true"
+  ></app-currency-list>
+  <button (click)="swapCurrency()"></button>
+  <app-currency-list
+    [currencyList]="currencyList"
+    [isFrom]="false"
+  ></app-currency-list>
 </div>
-

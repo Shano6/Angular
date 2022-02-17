@@ -1,9 +1,14 @@
 <div class="converterContainer">
-    <h2>Currency Converter</h2>
-    <p>Today, {{curDate | date:'yyyy-MM-dd hh:mm a'}}</p>
-    <app-currency-picker [currencyList]="currencyList!"></app-currency-picker>
-    <div class="inputContainer">
-        <input [formControl]="valueFrom" (ngModelChange)="onChange()"  type="number" placeholder="Value">
-        <input [formControl]="valueTo" type="number">
-    </div>
+  <h2>Currency Converter</h2>
+  <p>Today, {{ curDate | date: "yyyy-MM-dd hh:mm a" }}</p>
+  <app-currency-picker [currencyList]="currencyList!"></app-currency-picker>
+  <div class="inputContainer">
+    <input
+      [formControl]="valueFrom"
+      (ngModelChange)="onChange()"
+      type="number"
+      placeholder="Value"
+    />
+    <input [formControl]="valueTo" type="number" />
+  </div>
 </div>
