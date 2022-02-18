@@ -1,0 +1,29 @@
+<div class="sidebarContainer">
+    <h1>Documents ({{notes?.length}})</h1>
+    <ul class="noteList">
+        <li *ngFor="let note of notes">
+            <span class="title">{{note.title}}</span>
+            <span class="delete" (click)="deleteNote(note.id)">
+                <img src="assets/svg/delete.svg">
+            </span>
+        </li>
+    </ul>
+    <div class="noteInput" *ngIf="isActiveInput">
+        <p>Title</p>
+        <form (ngSubmit)="setValue()">
+        <input #titleInput name ="title" type="text" [(ngModel)]="title" #ctrl="ngModel" required >
+        <div class="buttonContainer">
+            <button type="submit">
+                <img src="assets/svg/add1.svg" (click)="setValue()">
+            </button>    
+            <img src="assets/svg/cancel1.svg" (click)="swapInputState()">
+        </div>
+    </form>
+        
+    </div>
+    <div class="plusContainer" *ngIf="!isActiveInput">
+        <img src="assets/svg/plus.svg" (click)="showInput()" >
+    </div>
+    
+</div>
+
