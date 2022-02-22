@@ -22,7 +22,20 @@ export class NotesService {
     localStorage.setItem('notes', JSON.stringify(noteList))
   }
 
-  deleteNote(id: string){
+  getNote(id: string): Note{
+    let note = this.noteList.value.filter(note=>note.id===id)
+    return note[0]
+  }
+
+  updateNote(updatedNote: Note): void{
+    let noteArray = this.noteList.value
+    let index = noteArray.findIndex((note => note.id === updatedNote.id));
+    let newNoteList = [...this.noteList.value]
+    newNoteList[index].content = updatedNote.content
+    this.setNoteList(newNoteList)
+  }
+
+  deleteNote(id: string): void{
     let filteredNotes = this.noteList.value.filter(note=>note.id!==id)
     this.setNoteList(filteredNotes)
   }

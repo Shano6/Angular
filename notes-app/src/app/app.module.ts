@@ -5,12 +5,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { TextareaComponent } from './components/textarea/textarea.component';
+import { DecoratorComponent } from './components/decorator/decorator.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
-    TextareaComponent
+    TextareaComponent,
+    DecoratorComponent
   ],
   imports: [
     BrowserModule,

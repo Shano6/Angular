@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, Output, ViewChild, EventEmitter, ElementRef } from '@angular/core';
 import { Note } from 'src/app/interfaces';
 import { NotesService } from 'src/app/services/notes.service';
 import { NgModel } from '@angular/forms';
@@ -10,9 +10,11 @@ import { v4 } from 'uuid';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
-  @ViewChild("titleInput") titleInput: any;
+  @Output() onChooseNote = new EventEmitter();
+  @ViewChild("titleInput") titleInput?: ElementRef;
 
   notes?: Note[]
+  chosenNoteId?: string 
   title?: string
   isActiveInput: boolean = false
   
@@ -24,14 +26,17 @@ export class SidebarComponent implements OnInit {
   }
 
   setValue(): void{
-    if(this.title)
-    this.notesService.setNoteList([...this.notes!, {
-      id: v4(),
-      title: this.title,
-      content: ''
-    }])
-    this.title=''
-    this.swapInputState()
+    if(this.title){
+      let guid = v4();
+      this.notesService.setNoteList([...this.notes!, {
+        id: guid,
+        title: this.title,
+        content: ''
+      }])
+      this.title=''
+      this.swapInputState()
+      this.chooseNote(guid)
+  }
   }
 
   showInput():void{
@@ -47,5 +52,14 @@ export class SidebarComponent implements OnInit {
 
   deleteNote(id: string){
     this.notesService.deleteNote(id)
+  }
+
+  chooseNote(id: string){
+    this.onChooseNote.emit(id)
+    this.chosenNoteId=id
+  }
+
+  isChosen(id: string): boolean{
+    return id === this.chosenNoteId!
   }
 }

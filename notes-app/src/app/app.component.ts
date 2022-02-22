@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'notes-app';
+  noteid?: string = ''
+
+  chooseNote(id: string){
+    this.noteid = id
+  }
 }

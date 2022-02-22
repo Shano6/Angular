@@ -1,0 +1,33 @@
+.container{
+    display: flex;
+}
+
+.textareaContainer{
+    height: 100%;
+    position: relative;
+    width: 80%;
+}
+
+.editableContent{
+    padding-left: 20px;
+    padding-top: 40px;
+    resize: none;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    font-size: 20px;
+}
+
+app-decorator{
+    position: absolute;
+}
+
+.plus{
+    position: relative;
+    top: 42px;
+    padding-left: 20px;
+}
+
+.plus img{
+    filter: invert(53%) sepia(0%) saturate(7426%) hue-rotate(111deg) brightness(79%) contrast(104%);
+}
