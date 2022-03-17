@@ -1,85 +1,85 @@
-.sidebarContainer{
-    border-right: 2.5px solid rgb(236, 232, 232);
-    width: 245px;
-    margin-left: 10px;
-    height: 100vh;
+.sidebarContainer {
+  border-right: 2.5px solid rgb(236, 232, 232);
+  width: 245px;
+  margin-left: 10px;
+  height: 100vh;
 }
 
-.sidebarContainer h1{
-    margin-left: 20px;
-    font-size: 28px;
-    margin-top: 0;
-    padding-top: 20px;
+.sidebarContainer h1 {
+  margin-left: 20px;
+  font-size: 28px;
+  margin-top: 0;
+  padding-top: 20px;
 }
 
-.noteList{
-    padding-left: 20px;
+.noteList {
+  padding-left: 20px;
 }
 
-.noteList li{
-    list-style: none;
-    padding: 20px 0 20px 5px;
-    margin-right: 3px;
-    font-weight: bold;
-    display: flex;
+.noteList li {
+  list-style: none;
+  padding: 20px 0 20px 5px;
+  margin-right: 3px;
+  font-weight: bold;
+  display: flex;
 }
 
-.active, .noteList li:hover{
-    background-color: rgb(236, 232, 232);
-    cursor: pointer;
+.active,
+.noteList li:hover {
+  background-color: rgb(236, 232, 232);
+  cursor: pointer;
 }
 
-.noteList img{
-    margin-right: 10px;
+.noteList img {
+  margin-right: 10px;
 }
 
-.test{
-    position: relative;
-    right: 0px;
+.test {
+  position: relative;
+  right: 0px;
 }
 
-.title{
-    width: 100%
+.title {
+  width: 100%;
 }
 
-.noteInput{
-    margin-left: 23px;
+.noteInput {
+  margin-left: 23px;
 }
 
-.noteInput p{
-    color: rgb(35, 182, 231);
-    font-weight: bold;
-    margin-bottom: 7px;
+.noteInput p {
+  color: rgb(35, 182, 231);
+  font-weight: bold;
+  margin-bottom: 7px;
 }
 
-.noteInput input{
-    border: none;
-    border-bottom: 2.5px solid rgb(35, 182, 231);
-    font-weight: bold;
-    font-size: 18px;
-    padding-right: 60px;
-    width: 133px;
+.noteInput input {
+  border: none;
+  border-bottom: 2.5px solid rgb(35, 182, 231);
+  font-weight: bold;
+  font-size: 18px;
+  padding-right: 60px;
+  width: 133px;
 }
 
-.buttonContainer{
-    display: inline;
-    margin-left: -42px;
+.buttonContainer {
+  display: inline;
+  margin-left: -42px;
 }
 
-img{
-    filter: invert(53%) sepia(0%) saturate(7426%) hue-rotate(111deg) brightness(79%) contrast(104%);
-    cursor: pointer;
+img {
+  filter: invert(53%) sepia(0%) saturate(7426%) hue-rotate(111deg)
+    brightness(79%) contrast(104%);
+  cursor: pointer;
 }
 
-.plusContainer{
-    text-align: center;
-    margin-top: 10px;
+.plusContainer {
+  text-align: center;
+  margin-top: 10px;
 }
 
-.buttonContainer button{
-    background: none;
-    border: none;
-    padding: 0;
+.buttonContainer button {
+  background: none;
+  border: none;
+  padding: 0;
 }
-
-

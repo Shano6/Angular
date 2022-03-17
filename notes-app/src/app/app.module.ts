@@ -12,13 +12,10 @@ import { DecoratorComponent } from './components/decorator/decorator.component';
     AppComponent,
     SidebarComponent,
     TextareaComponent,
-    DecoratorComponent
+    DecoratorComponent,
   ],
-  imports: [
-    BrowserModule,
-    FormsModule
-  ],
+  imports: [BrowserModule, FormsModule],
   providers: [NgModel],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -3,13 +3,13 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   title = 'notes-app';
-  noteid?: string = ''
+  noteid?: string = '';
 
-  chooseNote(id: string){
-    this.noteid = id
+  chooseNote(id: string) {
+    this.noteid = id;
   }
 }
