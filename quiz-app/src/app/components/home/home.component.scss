@@ -1,0 +1,59 @@
+.startContainer {
+  text-align: center;
+  margin-top: 5%;
+}
+
+.startContainer button {
+  width: 220px;
+  height: 60px;
+  font-size: 30px;
+  border: none;
+  border-radius: 5px;
+  background-color: #47a1eb;
+  color: white;
+  transition: all 0.3s;
+}
+
+button:hover {
+  cursor: pointer;
+  transform: scale(1.3);
+}
+
+.recentQuiz {
+  margin-top: 90px;
+  text-align: center;
+  color: white;
+}
+
+.contentContainer {
+  margin-top: 0;
+  padding: 0px;
+  width: 415px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  width: fit-content;
+  box-sizing: content-box;
+  padding: 15px 30px;
+}
+
+.redo {
+  margin-left: 20px;
+  text-decoration: underline;
+  color: #47a1eb;
+}
+
+.redo:hover {
+  cursor: pointer;
+}
+
+.date {
+  color: #47a1eb;
+  margin-right: 20px;
+}
