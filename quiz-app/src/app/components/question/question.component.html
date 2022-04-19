@@ -1,0 +1,11 @@
+<div class="questionContainer" *ngIf="!!question">
+  <h2>{{ question.question }}</h2>
+  <ul>
+    <li (click)="answer(i)" *ngFor="let i of answers" class="{{ getColor(i) }}">
+      {{ i }}
+    </li>
+  </ul>
+  <button *ngIf="displayAnswer" class="next" (click)="nextQuestion()">
+    {{ this.questionIndex === 9 ? "Finish" : "Next Question" }}
+  </button>
+</div>

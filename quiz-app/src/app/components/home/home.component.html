@@ -1,0 +1,15 @@
+<div class="startContainer">
+  <button (click)="startQuiz()">Start New Quiz</button>
+</div>
+<h2 class="recentQuiz" *ngIf="recentQuizzes.length > 0">
+  Recently done Quizzes
+</h2>
+<div class="contentContainer" *ngIf="recentQuizzes.length > 0">
+  <ul>
+    <li *ngFor="let i of recentQuizzes">
+      <span class="date">{{ i.date | date: "short" }}</span>
+      Correct Answers: {{ i.correctAnswers }}
+      <span class="redo" (click)="redoQuiz(i)">Redo Quiz</span>
+    </li>
+  </ul>
+</div>
