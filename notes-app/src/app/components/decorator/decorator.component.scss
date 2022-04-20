@@ -1,46 +1,46 @@
-.tools{
-    background-color: #292d30;
-    padding: 7px 15px;
-    margin-left: 30px; //DLL
-    border-radius: 5px;
-    font-weight: bold;
+.tools {
+  background-color: #292d30;
+  padding: 7px 15px;
+  margin-left: 30px; //DLL
+  border-radius: 5px;
+  font-weight: bold;
 }
 
-.tools li{
-    display: inline;
-    margin-right: 15px;
+.tools li {
+  display: inline;
+  margin-right: 15px;
 }
 
-.tools li:last-child{
-    margin-right: 0px;
+.tools li:last-child {
+  margin-right: 0px;
 }
 
-.seperator{
-    border-right: 2px solid #606465;
-    margin-right: 10px;
+.seperator {
+  border-right: 2px solid #606465;
+  margin-right: 10px;
 }
 
-.tools button{
-    background: none;
-    border: none;
-    color: #b9bbbf; 
-    font-weight: bold;
-    padding: 5px;
-    z-index: 1;
+.tools button {
+  background: none;
+  border: none;
+  color: #b9bbbf;
+  font-weight: bold;
+  padding: 5px;
+  z-index: 1;
 }
 
-.tools button:hover{
-    cursor: pointer;
+.tools button:hover {
+  cursor: pointer;
 }
 
-.bold{
-    font-weight: bold;
+.bold {
+  font-weight: bold;
 }
 
-.italic{
-    font-style: italic;
+.italic {
+  font-style: italic;
 }
 
-.underline{
-    text-decoration: underline;
+.underline {
+  text-decoration: underline;
 }

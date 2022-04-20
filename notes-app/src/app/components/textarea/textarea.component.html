@@ -1,22 +1,22 @@
 <div class="container">
-    <div class="plus">
-        <img src="assets/svg/plus.svg" alt="" [hidden]="content">
-    </div>
-    <div class="textareaContainer">
-        <div #input class="editableContent"
-        spellcheck="false"
-        contenteditable="true" 
-        [innerHtml]="content?content:'Write Something nice...'" 
-        (focus)="focus()"
-        (input)="onContentChange($event)"
-        (window:mouseup)="mouseUp($event)"
-        ></div>
-        <app-decorator 
-        #decorator 
-        [hidden]="!showDecorator"
-        (onDecorate)="onDecorate($event)"
-        ></app-decorator>
-    </div>
+  <div class="plus">
+    <img src="assets/svg/plus.svg" alt="" [hidden]="content" />
+  </div>
+  <div class="textareaContainer">
+    <div
+      #input
+      class="editableContent"
+      spellcheck="false"
+      contenteditable="true"
+      [innerHtml]="content ? content : 'Write Something nice...'"
+      (focus)="focus()"
+      (input)="onContentChange($event)"
+      (window:mouseup)="mouseUp($event)"
+    ></div>
+    <app-decorator
+      #decorator
+      [hidden]="!showDecorator"
+      (onDecorate)="onDecorate($event)"
+    ></app-decorator>
+  </div>
 </div>
-
-

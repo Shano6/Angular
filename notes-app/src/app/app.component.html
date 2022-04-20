@@ -1,5 +1,5 @@
 <div id="app">
-    <app-sidebar (onChooseNote)="chooseNote($event)"></app-sidebar>
-    <app-textarea *ngIf="noteid!==''" [noteid]="noteid"></app-textarea>
-    <!-- <app-decorator></app-decorator> -->
+  <app-sidebar (onChooseNote)="chooseNote($event)"></app-sidebar>
+  <app-textarea *ngIf="noteid !== ''" [noteid]="noteid"></app-textarea>
+  <!-- <app-decorator></app-decorator> -->
 </div>
